@@ -31,7 +31,7 @@ public class NsfocusExample
 
     System.out.println("Now go and authorize Scribe here:");
     System.out.println(service.getAuthorizationUrl(requestToken));
-    System.out.println("And paste the verifier here");
+    System.out.println("authorize?");
     System.out.print(">>");
     in.nextLine();
     //Verifier verifier = new Verifier(in.nextLine());
