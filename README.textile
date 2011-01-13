@@ -1,1 +1,1 @@
-*oauth support fo nsfocus wsp*
+*oauth support for nsfocus wsp*
