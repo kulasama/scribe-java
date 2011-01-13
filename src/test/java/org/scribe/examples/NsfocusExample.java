@@ -20,7 +20,7 @@ public class NsfocusExample
                                 .build();
     Scanner in = new Scanner(System.in);
 
-    System.out.println("=== Twitter's OAuth Workflow ===");
+    System.out.println("=== Nsfocus's OAuth Workflow ===");
     System.out.println();
 
     // Obtain the Request Token
@@ -54,7 +54,7 @@ public class NsfocusExample
     System.out.println(response.getBody());
 
     System.out.println();
-    System.out.println("Thats it man! Go and build something awesome with Scribe! :)");
+    System.out.println("Thats it man! Go and build something awesome with WSP! :)");
   }
 
 }
