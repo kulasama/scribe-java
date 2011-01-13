@@ -67,7 +67,6 @@ public class NsfocusApi extends DefaultApi10a
   public OAuthService createService(OAuthConfig config, String scope)
   {
     OAuthService service = new NsfocusServiceImpl(this, config);
-    System.out.println("override service");
     service.addScope(scope);
     return service;
   }
