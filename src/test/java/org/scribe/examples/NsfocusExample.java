@@ -7,16 +7,20 @@ import org.scribe.builder.api.*;
 import org.scribe.model.*;
 import org.scribe.oauth.*;
 
+
+
 public class NsfocusExample
 {
-  private static final String PROTECTED_RESOURCE_URL = "http://wsp.nsfocus.net/api/add/";
-  
+  //private static final String PROTECTED_RESOURCE_URL = "http://wsp.nsfocus.net/api/add/";
+  private static final String PROTECTED_RESOURCE_URL = "http://wsp.nsfocus.net/api/malcheck/y181494.51host.net/?call_back_url=http://202.10.71.174/nsrs/service/nsfocus/callback ";
+  private static final String API_KEY = "8ZsfMPhENQENz8E2";
+  private static final String API_SECRET = "pNg22vwR/0/djF6B";
   public static void main(String[] args)
   {
     OAuthService service = new ServiceBuilder()
                                 .provider(NsfocusApi.class)
-                                .apiKey("8ZsfMPhENQENz8E2")
-                                .apiSecret("pNg22vwR/0/djF6B")
+                                .apiKey(API_KEY)
+                                .apiSecret(API_SECRET)
                                 .build();
     Scanner in = new Scanner(System.in);
 
@@ -46,7 +50,10 @@ public class NsfocusExample
 
     // Now let's go and ask for a protected resource!
     System.out.println("Now we're going to access a protected resource...");
-    OAuthRequest request = new OAuthRequest(Verb.POST, PROTECTED_RESOURCE_URL);
+    OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
+    //request.addBodyParameter("domain", "www.baidu.com");
+    //request.addQuerystringParameter("domain","www.baidu.com"); 
+    
     service.signRequest(accessToken, request);
     Response response = request.send();
     System.out.println("Got it! Lets see what we found...");

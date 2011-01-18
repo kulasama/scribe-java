@@ -111,6 +111,7 @@ public class NsfocusServiceImpl implements OAuthService
   private String getSignature(OAuthRequest request, Token token)
   {
     String baseString = api.getBaseStringExtractor().extract(request);
+    System.out.println(baseString);
     return api.getSignatureService().getSignature(baseString, config.getApiSecret(), token.getSecret());
   }
 
