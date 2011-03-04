@@ -11,14 +11,15 @@ import org.scribe.oauth.*;
 
 public class NsfocusExample
 {
-  //private static final String PROTECTED_RESOURCE_URL = "http://wsp.nsfocus.net/api/add/";
-  private static final String PROTECTED_RESOURCE_URL = "http://wsp.nsfocus.net/api/malcheck/y181494.51host.net/?call_back_url=http://202.10.71.174/nsrs/service/nsfocus/callback ";
-  private static final String API_KEY = "8ZsfMPhENQENz8E2";
-  private static final String API_SECRET = "pNg22vwR/0/djF6B";
+  private static final String PROTECTED_RESOURCE_URL = "http://127.0.0.1:8080/api/user/";
+  //private static final String PROTECTED_RESOURCE_URL = "http://127.0.0.1:8080/api/user";
+  private static final String API_KEY = "kA4vWNY6hW5HrDn8";
+  private static final String API_SECRET = "8SvnWqqh3eKFn4nE";
   public static void main(String[] args)
   {
     OAuthService service = new ServiceBuilder()
                                 .provider(NsfocusApi.class)
+                                .callback("http://127.0.0.1")
                                 .apiKey(API_KEY)
                                 .apiSecret(API_SECRET)
                                 .build();
@@ -37,13 +38,12 @@ public class NsfocusExample
     System.out.println(service.getAuthorizationUrl(requestToken));
     System.out.println("authorize?");
     System.out.print(">>");
-    in.nextLine();
-    //Verifier verifier = new Verifier(in.nextLine());
+    Verifier verifier = new Verifier(in.nextLine());
     System.out.println();
-
+    System.out.println(verifier.getValue());
     // Trade the Request Token and Verfier for the Access Token
     System.out.println("Trading the Request Token for an Access Token...");
-    Token accessToken = service.getAccessToken(requestToken,null);
+    Token accessToken = service.getAccessToken(requestToken,verifier);
     System.out.println("Got the Access Token!");
     System.out.println("(if your curious it looks like this: " + accessToken + " )");
     System.out.println();

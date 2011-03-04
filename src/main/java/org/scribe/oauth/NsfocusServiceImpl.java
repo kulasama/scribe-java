@@ -65,7 +65,7 @@ public class NsfocusServiceImpl implements OAuthService
   {
     OAuthRequest request = new OAuthRequest(api.getAccessTokenVerb(), api.getAccessTokenEndpoint());
     request.addOAuthParameter(OAuthConstants.TOKEN, requestToken.getToken());
-    //request.addOAuthParameter(OAuthConstants.VERIFIER, verifier.getValue());
+    request.addOAuthParameter(OAuthConstants.VERIFIER, verifier.getValue());
     addOAuthParams(request, requestToken);
     addOAuthHeader(request);
     Response response = request.send();

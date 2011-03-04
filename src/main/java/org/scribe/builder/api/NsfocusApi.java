@@ -13,18 +13,21 @@ import org.scribe.oauth.NsfocusServiceImpl;
 
 public class NsfocusApi extends DefaultApi10a
 {
-  private static final String AUTHORIZE_URL = "http://wsp.nsfocus.net/oauth/authorize?oauth_token=%s";
+
+  //private static final String HOST = "http://wsp.nsfocus.net";
+  private static final String HOST = "http://127.0.0.1:8080";
+  private static final String AUTHORIZE_URL = HOST + "/oauth/authorize?oauth_token=%s";
   
   @Override
   public String getAccessTokenEndpoint()
   {
-    return "http://wsp.nsfocus.net/oauth/access_token/";
+    return HOST + "/oauth/access_token/";
   }
 
   @Override
   public String getRequestTokenEndpoint()
   {
-    return "http://wsp.nsfocus.net/oauth/request_token/";
+    return HOST + "/oauth/request_token/";
   }
   
   @Override
